@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->constrained()->onDelete('cascade');
-            $table->foreignId('produit_id')->constrained()->onDelete('cascade');
-            $table->integer('quantite');
+            $table->date('date_commande');
+            $table->decimal('frais_livraison', 5, 2);
+            $table->decimal('remise', 5, 2);
+            $table->string('status');
+            $table->foreignId('client_id')->constrained();
             $table->timestamps();
         });
     }

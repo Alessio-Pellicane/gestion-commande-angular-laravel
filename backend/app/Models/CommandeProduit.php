@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produit extends Model
+class CommandeProduit extends Model
 {
     protected $fillable=[
-        "nom_type",
-        "nom_parfum",
+        "commande_id",
+        "produit_id",
+        "quantite",
         "prix_unitaire",
-        "en_stock",
     ];
 }

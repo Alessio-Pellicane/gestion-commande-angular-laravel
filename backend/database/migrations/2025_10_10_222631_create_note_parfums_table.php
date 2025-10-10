@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produits', function (Blueprint $table) {
+        Schema::create('note_parfums', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id')->constrained();
+            $table->foreignId('note_id')->constrained();
             $table->foreignId('parfum_id')->constrained();
-            $table->decimal('prix_unitaire', 5, 2);
-            $table->boolean('en_stock');
+            $table->decimal('pourcentage',5,2);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produits');
+        Schema::dropIfExists('note_parfums');
     }
 };

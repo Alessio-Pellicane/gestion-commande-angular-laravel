@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produit extends Model
+class NoteParfum extends Model
 {
     protected $fillable=[
-        "nom_type",
         "nom_parfum",
-        "prix_unitaire",
-        "en_stock",
+        "nom_note",
+        "pourcentage"
     ];
 }
