@@ -13,8 +13,14 @@ class ClientController extends Controller
      */
     public function index()
     {
+        info("(ClientController - index() ) -> Récupération de la liste des clients");
+        $clients = Client::all();
 
-        return response()->json(Client::all());
+        return response()->json([
+            "success" => true,
+            "data" => $clients,
+            "message"=> "La liste de clients à été envoyé avec succès"
+        ]);
     }
 
     /**
