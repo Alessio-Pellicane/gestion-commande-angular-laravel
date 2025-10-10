@@ -9,7 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::apiResource('clients', ClientController::class);
-Route::apiResource('produits', ProduitController::class);
-Route::apiResource('commandes',CommandeController::class);
-
+//Permet de regrouper les routes API en un seul prefix "api/maRessource"
+Route::prefix("api")->group(function(){
+    Route::apiResource('clients', ClientController::class);
+    Route::apiResource('produits', ProduitController::class);
+    Route::apiResource('commandes',CommandeController::class);
+});
