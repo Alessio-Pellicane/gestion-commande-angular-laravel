@@ -15,11 +15,11 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            "nom"=>$this->faker->lastName(),
-            "prenom"=>$this->faker->firstName(),
-            "date_de_naissance"=>$this->faker->date(),
-            "telephone"=>$this->faker->phoneNumber(),
-            "email"=>$this->faker->unique()->safeEmail(),
+            "nom" => $this->faker->lastName(),
+            "prenom" => $this->faker->firstName(),
+            "date_de_naissance" => $this->faker->date(),
+            "telephone" => $this->faker->phoneNumber(),
+            "email" => $this->faker->unique()->safeEmail(),
         ];
     }
 }
