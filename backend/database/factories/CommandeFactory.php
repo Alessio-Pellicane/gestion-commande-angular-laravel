@@ -19,7 +19,7 @@ class CommandeFactory extends Factory
             "frais_livraison" => $this->faker->randomFloat(2,0,10),
             "remise" => $this->faker->randomFloat(2,0,10),
             "status" => $this->faker->randomElement(["En attente","Payé"]),
-            "client_id" => Client::inRandomOrder()->first()->id ?? Client::factory()->create()->id,
+            "client_id" => Client::inRandomOrder()->first()->id,
         ];
     }
 }

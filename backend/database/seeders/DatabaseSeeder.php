@@ -16,7 +16,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ClientSeeder::class,
-            CommandeSeeder::class
+            TypeSeeder::class,
+            NoteSeeder::class,
+            ParfumSeeder::class,
+            NoteParfumSeeder::class,
+            ProduitSeeder::class,
+            CommandeSeeder::class,
+            CommandeProduitSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
