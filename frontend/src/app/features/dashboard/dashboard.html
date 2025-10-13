@@ -1,1 +1,21 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <app-header [title]="title"></app-header>
+    <div class="dashboard-cards">
+        <div class="dashboard-card">
+            <h2>Clients</h2>
+            <p>Nombre total : 0</p>
+            <a href="/clients" class="dashboard-link">Voir les clients</a>
+        </div>
+        <div class="dashboard-card">
+            <h2>Produits</h2>
+            <p>Nombre total : 0</p>
+            <a href="/produits" class="dashboard-link">Voir les produits</a>
+        </div>
+        <div class="dashboard-card">
+            <h2>Commandes</h2>
+            <p>Nombre total : 0</p>
+            <p>Revenu total : 0 €</p>
+            <a href="/commandes" class="dashboard-link">Voir les commandes</a>
+        </div>
+    </div>
+</div>
