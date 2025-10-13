@@ -5,7 +5,8 @@ import { Produits } from './features/produits/produits';
 import { Commandes } from './features/commandes/commandes';
 
 export const routes: Routes = [
-    {path: '', component: Dashboard},
+    {path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    {path: 'dashboard', component: Dashboard, },
     {path: 'clients', component: Clients},
     {path: 'produits', component: Produits},
     {path: 'commandes', component: Commandes},
