@@ -1,15 +1,38 @@
 import { Routes } from '@angular/router';
-import { Dashboard } from './features/dashboard/dashboard';
-import { Clients } from './features/clients/clients';
-import { Produits } from './features/produits/produits';
-import { Commandes } from './features/commandes/commandes';
+import { Dashboard } from './features/dashboard/pages/dashboard';
+import { Produits } from '@features/produits/produits';
+import { Commandes } from '@features/commandes/commandes';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    {path: 'dashboard', component: Dashboard, },
-    {path: 'clients', component: Clients},
-    {path: 'produits', component: Produits},
-    {path: 'commandes', component: Commandes},
-    {path: '**', redirectTo: ''} // Wildcard route for a 404 page
+
+    {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+    },
+
+    {
+        path: 'dashboard',
+        loadChildren: () => import('./features/dashboard/dashboard.routes').then(m => m.dashboardRoutes),
+
+    },
+    {
+        path: 'clients',
+        loadChildren: () => import('./features/clients/clients.routes').then(m => m.clientsRoutes),
+    },
+
+    {
+        path: 'produits',
+        component: Produits
+    },
+    {
+        path: 'commandes',
+        component:
+            Commandes
+    },
+    {
+        path: '**',
+        redirectTo: ''
+    }
 
 ];

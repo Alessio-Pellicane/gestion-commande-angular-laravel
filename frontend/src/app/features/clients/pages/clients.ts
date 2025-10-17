@@ -1,15 +1,20 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TITLE } from '@core/constants';
+import { Header } from '@shared/components/header/header';
 
 @Component({
   selector: 'app-clients',
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, Header],
   templateUrl: './clients.html',
   styleUrl: './clients.scss'
 })
 export class Clients {
-    clients = [
+  protected readonly title : string = TITLE.CLIENTS;
+    
+  
+  protected clients: any[] = [
       {
         id: 1,
         nom: 'Dupont',
