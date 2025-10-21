@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+/* ==== Structure principale ==== */
+.main-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+  }
