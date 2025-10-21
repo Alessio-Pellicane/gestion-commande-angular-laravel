@@ -1,7 +1,7 @@
     <div class="dashboard-cards">
         <div class="dashboard-card" (click)="onCardClick('clients')">
             <h2>Clients</h2>
-            <p>Nombre total : 0</p>
+            <p>Nombre total : {{clientService.clients$().length}}</p>
         </div>
         <div class="dashboard-card" (click)="onCardClick('produits')">
             <h2>Produits</h2>
