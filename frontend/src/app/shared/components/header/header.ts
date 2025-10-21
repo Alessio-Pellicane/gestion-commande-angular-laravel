@@ -1,46 +1,29 @@
-import { OnInit, OnDestroy, Component, Input } from '@angular/core';
-import { DatePipe, AsyncPipe } from '@angular/common';
-import { interval, Observable, Subject } from 'rxjs';
-import { map, takeUntil, tap} from 'rxjs/operators';
+import { OnInit, Component , inject } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { PageTitleService } from '@shared/services/page-title-service';
+import { DateTimeService } from '@shared/services/date-time-service';
 
 @Component({
   standalone: true,
   selector: 'app-header',
-  imports: [DatePipe, AsyncPipe],
+  imports: [DatePipe],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
-export class Header implements OnInit , OnDestroy {
+export class Header implements OnInit  {
 
-  @Input() title!: string;
-
-  private destroy$! : Subject<boolean>;
+  protected pageTilteService = inject(PageTitleService);
   protected currentDate$! : Observable<Date>;
-
+  protected dateTimeService = inject(DateTimeService);
   
+
   // INPUT: / 
   // PROCESS: Initialision d'un Observable qui émet la date actuelle toutes les secondes
   // OUTPUT: /
   ngOnInit(): void {
-    console.log("(Header - OnInit) : Initialisation du composant Header");
+    console.log("(Header - ngOnInit) : Initialisation du composant...");
     
-    this.destroy$ = new Subject<boolean>();
-    this.currentDate$ = interval(1000).pipe(
-      takeUntil(this.destroy$),
-      map(() => new Date()),
-    );
-  }
-
-
-
-
-  // INPUT: /
-  // PROCESS: Nettoyage de l'Observable pour éviter les fuites de mémoire lorsque le composant est détruit
-  // OUTPUT: /
-  ngOnDestroy(): void {
-    console.log("(Header - OnInit) : Destruction du composant Header");
-    this.destroy$.next(true);
-    this.destroy$.complete();
   }
 
 }
