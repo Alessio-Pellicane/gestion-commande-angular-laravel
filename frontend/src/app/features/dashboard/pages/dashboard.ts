@@ -23,7 +23,6 @@ export class Dashboard implements OnInit{
 
 
   onCardClick(path : string ): void {
-    console.log('(Dashboard - onClientsCardClick) : Clic sur la carte Clients');
     this.route.navigate(['/' + path]);
   }
   

@@ -1,43 +1,34 @@
 import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TITLE } from '@core/constants';
-import { Header } from '@shared/components/header/header';
+import { PageTitleService } from '@shared/services/page-title-service';
+import { Client } from '@shared/models/client.model';
+import { ClientService } from '../services/client-service';
+import { ApiResponse } from '@core/interfaces/api-response.interface';
+
+
 
 @Component({
   selector: 'app-clients',
-  imports: [RouterLink, DatePipe, Header],
+  imports: [RouterLink, DatePipe],
   templateUrl: './clients.html',
   styleUrl: './clients.scss'
 })
-export class Clients {
-  protected readonly title : string = TITLE.CLIENTS;
-    
-  
-  protected clients: any[] = [
-      {
-        id: 1,
-        nom: 'Dupont',
-        prenom: 'Jean',
-        date_de_naissance: new Date(1985, 4, 12),
-        telephone: '0601020304',
-        email: 'jean.dupont@email.com'
-      },
-      {
-        id: 2,
-        nom: 'Martin',
-        prenom: 'Sophie',
-        date_de_naissance: new Date(1990, 10, 23),
-        telephone: '0605060708',
-        email: 'sophie.martin@email.com'
-      },
-      {
-        id: 3,
-        nom: 'Durand',
-        prenom: 'Paul',
-        date_de_naissance: new Date(1978, 1, 5),
-        telephone: '0611223344',
-        email: 'paul.durand@email.com'
-      }
-    ];
+export class Clients implements OnInit {
+
+  private pageTitleService = inject(PageTitleService);
+  protected clientService = inject(ClientService);
+
+
+
+
+
+  // INPUT: / 
+  // PROCESS: Initialisation du composant
+  // OUTPUT: /
+  ngOnInit(): void {
+    console.log('(Clients - ngOnInit) Initialisation du composant...');
+    this.pageTitleService.setPageTitle(TITLE.CLIENTS);
+  }
 }

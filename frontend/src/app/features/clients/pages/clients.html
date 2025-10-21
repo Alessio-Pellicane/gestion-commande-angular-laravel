@@ -1,8 +1,7 @@
 
 <div class="main-container">
-  <app-header [title]="title"></app-header>
   <div class="clients-back">
-    <button type="button" routerLink="/" aria-label="Retour à l'accueil" class="back-btn">
+    <button type="button" routerLink="/" class="back-btn">
       &#8592; Accueil
     </button>
   </div>
@@ -25,7 +24,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (client of clients; track client.id) {
+      @for (client of clientService.clients$(); track client.id) {
         <tr>
           <td>{{ client.nom }}</td>
           <td>{{ client.prenom }}</td>

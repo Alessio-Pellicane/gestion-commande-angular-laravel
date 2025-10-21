@@ -5,3 +5,11 @@ export const TITLE = {
     PRODUITS : "Liste des produits",
     COMMANDES : "Liste des commandes"
 }
+
+
+export const ApiUris = {
+
+    CLIENTS : 'clients',
+    PRODUITS : 'produits',
+    COMMANDES : 'commandes'
+}
