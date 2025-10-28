@@ -1,0 +1,26 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>Ajouter un client</h2>
+    <form [formGroup]="clientForm">
+      <label>Nom:</label>
+      <input formControlName="nom" name="nom" required />
+
+      <label>Prénom:</label>
+      <input formControlName="prenom" name="prenom" required />
+
+      <label>Email:</label>
+      <input formControlName="email" name="email" type="email" />
+
+      <label>Téléphone:</label>
+      <input formControlName="telephone" name="telephone" />
+
+      <label>Date de naissance:</label>
+      <input formControlName="date_de_naissance" name="date_de_naissance" type="date" />
+
+      <div class="actions">
+        <button type="button" (click)="onCancel()">Annuler</button>
+        <button type="button" (click)="onSave()">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>
